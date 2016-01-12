@@ -1,0 +1,15 @@
+<%= form_for(@book) do |f| %>
+    <% if @book.errors %>
+      <ul>
+        <% @book.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <%= f.label :title %>
+    <%= f.text_field :title %><br>
+    <%= f.hidden_field :checked_out, value: @checked_out %>
+
+    <%= f.submit %>
+<% end %>
